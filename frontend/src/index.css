@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#fafafa] text-gray-900 font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    @apply bg-crimson-200 text-crimson-900;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-crimson-400;
+  }
+}
+
+@layer components {
+  /* Glass Navbar */
+  .glass-nav {
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  /* Apple Card */
+  .apple-card {
+    @apply bg-white rounded-2xl shadow-apple border border-gray-100;
+  }
+
+  .apple-card-lg {
+    @apply bg-white rounded-3xl shadow-apple-lg border border-gray-100;
+  }
+
+  /* Input */
+  .femai-input {
+    @apply w-full px-4 py-3 bg-pearl-100 border border-gray-200 rounded-xl 
+           text-sm text-gray-900 placeholder-gray-400
+           focus:outline-none focus:ring-2 focus:ring-crimson-400 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  .femai-label {
+    @apply block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5;
+  }
+
+  /* Primary Button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-crimson-700 hover:bg-crimson-800 active:bg-crimson-900
+           text-white font-semibold text-sm px-6 py-3 rounded-xl
+           shadow-crimson hover:shadow-crimson-lg
+           transition-all duration-200 ease-out
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-white hover:bg-gray-50 active:bg-gray-100
+           text-gray-700 font-semibold text-sm px-6 py-3 rounded-xl
+           border border-gray-200 shadow-apple
+           transition-all duration-200 ease-out;
+  }
+
+  /* Section pill tag */
+  .tag-pill {
+    @apply inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest
+           text-crimson-700 bg-crimson-50 border border-crimson-100 px-3 py-1.5 rounded-full;
+  }
+
+  /* Progress ring wrapper */
+  .progress-ring-track {
+    stroke: #f3f4f6;
+  }
+  .progress-ring-bar {
+    stroke: #c21321;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #c21321 0%, #7b1c37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-dark {
+    background: linear-gradient(135deg, #861520 0%, #430a1a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-mesh {
+    background-color: #fafafa;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 20% -10%, rgba(194,19,33,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 85% 110%, rgba(123,28,55,0.05) 0%, transparent 60%);
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.6) 50%,
+      rgba(255,255,255,0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position:  200% 0; }
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
