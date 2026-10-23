@@ -1,8 +1,29 @@
-node_modules/
+# Python
+.venv/
+venv/
 backend/venv/
-backend/__pycache__/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Node & Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
 .env
+frontend/.env
+frontend/.env.example
+*.local
+
+# Model Artifacts (Explicitly tracked)
+!femai_svm_model.pkl
+!backend/models/femai_svm_model.pkl
+!first_attempt/old_model/*.pkl
+
+# OS / Editor artifacts
 .DS_Store
-*.pkl
-!backend/pcos_model.pkl
-!backend/scaler.pkl
+Thumbs.db
+.vscode/
+.idea/
